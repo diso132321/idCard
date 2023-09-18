@@ -6,4 +6,22 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.post('/card', function(req, res, next) {
+  console.log(req.body.dateOfBirth)
+  res.render('card',  {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    type: req.body.type,
+    dateOfBirth: new Date(req.body.dateOfBirth),
+    addressLine1:req.body.addressLine1,
+    addressLine2:req.body.addressLine2,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    accountNumber: 123456,
+    //
+    currentDate: new Date()
+  });
+})
+
 module.exports = router;
