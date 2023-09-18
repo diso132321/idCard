@@ -44,3 +44,6 @@ input, select {
 .address-text p:first-child {
   margin-top: 6px;
 }
+.address-text p:last-child {
+  margin-bottom: 6px;
+}
