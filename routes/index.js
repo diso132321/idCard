@@ -18,10 +18,31 @@ router.post('/card', function(req, res, next) {
     city: req.body.city,
     state: req.body.state,
     zip: req.body.zip,
-    accountNumber: 123456,
+    accountNumber: createAccountNumber(),
     //
-    currentDate: new Date()
+    currentDate: new Date(),
+    cardClass: getCardClass(req.body.type)
   });
 })
-
 module.exports = router;
+
+function createAccountNumber(){
+  let accNum = ""
+  for (let i = 0; i<5; i++){
+    let temp = Math.floor(Math.random()*10);
+    accNum += temp;
+  }
+  return accNum
+}
+
+function getCardClass(type){
+  if (type === "Premium"){
+    return "premium"
+  } else if (type ==="Standard") {
+    return "standard"
+  } else if (type ==="Bronze") {
+    return "bronze"
+  } else {
+    return ""
+  }
+}
